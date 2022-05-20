@@ -9,7 +9,7 @@ export default function PictureOfTheDay (){
     }
     return <div className={"picture-of-the-day"}>
         <p>{pictureOfTheDay.title}</p>
-        <img src={pictureOfTheDay.url}/>
+        <img src={pictureOfTheDay.url} alt={""}/>
         <p>{pictureOfTheDay.date}</p>
         <p>{pictureOfTheDay.explanation}</p>
         <p>Copyright: {pictureOfTheDay.copyright}</p>

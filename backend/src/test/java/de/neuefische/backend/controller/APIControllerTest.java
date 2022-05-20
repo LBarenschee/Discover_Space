@@ -26,9 +26,7 @@ class APIControllerTest {
 
     @Autowired
     private WebTestClient testClient;
-
-   /* @MockBean
-    private WebClientConfig webClientConfig;*/
+    
 
     @Test
     void getPictureOfTheDay() {

@@ -5,7 +5,7 @@ import useNasaPicture from "../hooks/useNasaPicture";
 export default function PictureOfTheDay (){
     const pictureOfTheDay = useNasaPicture()
     if(!pictureOfTheDay){
-        return <div>Picture is not available</div>
+        return <div></div>
     }
     return <div className={"picture-of-the-day"}>
         <p>{pictureOfTheDay.title}</p>

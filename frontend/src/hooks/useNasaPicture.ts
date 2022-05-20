@@ -14,4 +14,5 @@ export default function useNasaPicture(){
             .catch(()=> console.error("Can't find Picture Of The Day"))
     },[])
     return pictureOfTheDay
+
 }

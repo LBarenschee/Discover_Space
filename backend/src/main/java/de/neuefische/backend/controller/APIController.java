@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 
 
 @RestController
-@RequestMapping("/picoftheday")
+@RequestMapping("/")
 public class APIController {
 
     private final APIService apiService;
@@ -20,8 +21,13 @@ public class APIController {
         this.apiService = apiService;
     }
 
-    @GetMapping
+    @GetMapping("/picoftheday")
     public NasaPicture getPictureOfTheDay (){
         return apiService.getPictureOfTheDay();
+    }
+
+    @GetMapping("/randompicture")
+    public NasaPicture getRandomPicture(){
+        return apiService.getRandomPicture();
     }
 }

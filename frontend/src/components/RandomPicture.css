@@ -1,0 +1,40 @@
+.randompicture{
+    background-color: #000000;
+    color: #ffffff;
+    margin-top: 0%;
+    padding: 0%;
+    font-family: Tahoma;
+}
+.title{
+    text-align: left;
+    padding-bottom: 3%;
+    padding-left: 2%;
+}
+.date{
+    text-align: left;
+    padding-left: 2%;
+    padding-bottom: 5%;
+}
+.explanation{
+    text-align: left;
+    padding-left: 2%;
+    padding-bottom: 5%;
+}
+.copyright{
+    text-align: left;
+    padding-left: 2%;
+    padding-bottom: 5%;
+}
+.hdurl{
+    text-align: left;
+    padding-bottom: 5%;
+    padding-left: 2%;
+}
+img {
+    max-width: 100%;
+    padding-bottom: 2%;
+}
+p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}

@@ -8,8 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+
 import java.util.List;
 
 @Service

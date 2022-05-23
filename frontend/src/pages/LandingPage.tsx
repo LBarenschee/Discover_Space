@@ -6,10 +6,10 @@ function LandingPage() {
     const navigate = useNavigate()
     return (
         <div className="landingpage">
-            <button className={"b1"} onClick={() => navigate(`/picoftheday`)}>Picture Of The Day</button>
-            <button className={"b2"} onClick={() => navigate(`/randompicture`)}>Random Picture</button>
-            <button className={"b3"}>My Favourites</button>
-            <button className={"b4"}>Archive</button>
+            <button  onClick={() => navigate(`/picoftheday`)}>Picture Of The Day</button>
+            <button  onClick={() => navigate(`/randompicture`)}>Random Picture</button>
+            <button>My Favourites</button>
+            <button>Archive</button>
         </div>
     );
 }

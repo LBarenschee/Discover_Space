@@ -14,7 +14,6 @@ export default function RandomPicture (){
         <p className={"explanation"}>{randomPicture.explanation}</p>
         <p className={"copyright"}>Copyright: {randomPicture.copyright}</p>
         <p className={"hdurl"}>Hi-res version: <a href={randomPicture.hdurl}>{randomPicture.hdurl}</a></p>
-
     </div>
 
 }

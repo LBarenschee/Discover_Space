@@ -8,6 +8,9 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+
+import java.util.List;
+
 @Service
 public class APIService {
 
@@ -27,14 +30,26 @@ public class APIService {
         //API Call
         NasaPicture nasaPicture = webClient
                 .get()
-                .uri("/planetary/apod?api_key="+API_KEY)
+                .uri("/planetary/apod?api_key=" + API_KEY)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .retrieve()
                 .toEntity(NasaPicture.class)
                 .block()
                 .getBody();
 
-
         return nasaPicture;
+    }
+
+    public NasaPicture getRandomPicture() {
+        List<NasaPicture> nasaPicture = webClient
+                .get()
+                .uri("/planetary/apod?api_key=" + API_KEY + "&count=1")
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .retrieve()
+                .toEntityList(NasaPicture.class)
+                .block()
+                .getBody();
+
+        return nasaPicture.get(0);
     }
 }

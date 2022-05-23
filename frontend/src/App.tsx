@@ -3,6 +3,7 @@ import './App.css';
 import LandingPage from "./pages/LandingPage";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import PictureOfTheDay from "./components/PictureOfTheDay";
+import RandomPicture from "./components/RandomPicture";
 
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
                element={<LandingPage/>}/>
         <Route path="/picoftheday"
                element={<PictureOfTheDay/>}/>
+        <Route path="/randompicture"
+               element={<RandomPicture/>}/>
       </Routes>
         </BrowserRouter>
       </div>

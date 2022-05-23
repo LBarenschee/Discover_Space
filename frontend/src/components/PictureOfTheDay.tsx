@@ -1,23 +1,20 @@
 import useNasaPicture from "../hooks/useNasaPicture";
-
+import "./PictureOfTheDay.css";
 
 
 export default function PictureOfTheDay (){
     const pictureOfTheDay = useNasaPicture()
     if(!pictureOfTheDay){
-        return <div>Picture is not available</div>
+        return <div></div>
     }
     return <div className={"picture-of-the-day"}>
-        <p>{pictureOfTheDay.title}</p>
-        <img src={pictureOfTheDay.url} alt={""}/>
-        <p>{pictureOfTheDay.date}</p>
-        <p>{pictureOfTheDay.explanation}</p>
-        <p>Copyright: {pictureOfTheDay.copyright}</p>
-        <p>{pictureOfTheDay.url}</p>
+        <img className={"img"} src={pictureOfTheDay.url} alt={""}/>
+        <p className={"title"}>{pictureOfTheDay.title}</p>
+        <p className={"date"}>{pictureOfTheDay.date}</p>
+        <p className={"explanation"}>{pictureOfTheDay.explanation}</p>
+        <p className={"copyright"}>Copyright: {pictureOfTheDay.copyright}</p>
+        <p className={"hdurl"}>Hi-res version: <a href={pictureOfTheDay.hdurl}>{pictureOfTheDay.hdurl}</a></p>
 
-        <p>{pictureOfTheDay.hdurl}</p>
-        <p>{pictureOfTheDay.media_type}</p>
-        <p>{pictureOfTheDay.service_version}</p>
     </div>
 
 }

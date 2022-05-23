@@ -1,4 +1,4 @@
-import "./RandomPicture.css";
+import "../styling/RandomPicture.css";
 import useRandomPicture from "../hooks/useRandomPicture";
 
 
@@ -13,7 +13,7 @@ export default function RandomPicture (){
         <p className={"date"}>{randomPicture.date}</p>
         <p className={"explanation"}>{randomPicture.explanation}</p>
         <p className={"copyright"}>Copyright: {randomPicture.copyright}</p>
-        <p className={"hdurl"}>Hi-res version: <a href={randomPicture.hdurl}>{randomPicture.hdurl}</a></p>
+        <p className={"hdurl"}> <a href={randomPicture.hdurl}>{"Hi-Res Version"}</a></p>
     </div>
 
 }

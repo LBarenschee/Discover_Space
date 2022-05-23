@@ -1,5 +1,5 @@
 import useNasaPicture from "../hooks/useNasaPicture";
-import "./PictureOfTheDay.css";
+import "../styling/PictureOfTheDay.css";
 
 
 export default function PictureOfTheDay (){
@@ -13,7 +13,7 @@ export default function PictureOfTheDay (){
         <p className={"date"}>{pictureOfTheDay.date}</p>
         <p className={"explanation"}>{pictureOfTheDay.explanation}</p>
         <p className={"copyright"}>Copyright: {pictureOfTheDay.copyright}</p>
-        <p className={"hdurl"}>Hi-res version: <a href={pictureOfTheDay.hdurl}>{pictureOfTheDay.hdurl}</a></p>
+        <p className={"hdurl"}><a href={pictureOfTheDay.hdurl}>{"Hi-Res Version"}</a></p>
 
     </div>
 

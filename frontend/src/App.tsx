@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import PictureOfTheDay from "./components/PictureOfTheDay";
 import RandomPicture from "./components/RandomPicture";
 import ArchivePage from "./pages/ArchivePage";
+import FavouritesPage from "./pages/FavouritesPage";
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
                element={<RandomPicture/>}/>
         <Route path="/archive"
                element={<ArchivePage/>}/>
+        <Route path="/favourites"
+               element={<FavouritesPage/>}/>
       </Routes>
         </BrowserRouter>
       </div>

@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import PictureOfTheDay from "./components/PictureOfTheDay";
 import RandomPicture from "./components/RandomPicture";
+import ArchivePage from "./pages/ArchivePage";
 
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
                element={<PictureOfTheDay/>}/>
         <Route path="/randompicture"
                element={<RandomPicture/>}/>
+        <Route path="/archive"
+               element={<ArchivePage/>}/>
       </Routes>
         </BrowserRouter>
       </div>

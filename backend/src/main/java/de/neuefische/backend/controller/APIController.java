@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
 
@@ -28,5 +29,10 @@ public class APIController {
     @GetMapping("/randompicture")
     public NasaPicture getRandomPicture(){
         return apiService.getRandomPicture();
+    }
+
+    @GetMapping("/archive")
+    public List<NasaPicture> getArchive(){
+        return apiService.getArchive();
     }
 }

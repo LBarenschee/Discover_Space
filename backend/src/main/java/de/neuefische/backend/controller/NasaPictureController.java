@@ -3,21 +3,19 @@ package de.neuefische.backend.controller;
 import de.neuefische.backend.model.NasaPicture;
 import de.neuefische.backend.service.APIService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
 @RestController
 @RequestMapping("/")
-public class APIController {
+public class NasaPictureController {
 
     private final APIService apiService;
 
     @Autowired
-    public APIController(APIService apiService) {
+    public NasaPictureController(APIService apiService) {
         this.apiService = apiService;
     }
 
@@ -35,4 +33,15 @@ public class APIController {
     public List<NasaPicture> getArchive(){
         return apiService.getArchive();
     }
+
+    @PostMapping("/favourites")
+    public NasaPicture savePictureAsFavourite(@RequestBody NasaPicture nasaPicture){
+        return apiService.saveNewPicture(nasaPicture);
+    }
+
+    @GetMapping("/favourites")
+    public List<NasaPicture> getFavourites(){
+        return apiService.getFavourites();
+    }
+
 }

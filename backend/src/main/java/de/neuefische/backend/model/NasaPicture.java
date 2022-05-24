@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @AllArgsConstructor
@@ -15,6 +16,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class NasaPicture {
 
     private String title;
+    @Id
     private String date;
     private String explanation;
     private String copyright;

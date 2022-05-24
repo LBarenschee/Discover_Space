@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class APIControllerTest {
+class NasaPictureControllerTest {
 
     @Autowired
     private TestWebClientConfig testWebClientConfig;

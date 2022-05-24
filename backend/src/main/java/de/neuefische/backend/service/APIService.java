@@ -1,6 +1,7 @@
 package de.neuefische.backend.service;
 
 import de.neuefische.backend.model.NasaPicture;
+import de.neuefische.backend.repository.NasaPictureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -15,12 +16,14 @@ import java.util.List;
 public class APIService {
 
     private final WebClient webClient;
+    private final NasaPictureRepository pictureRepository;
 
 
     @Autowired
-    public APIService(WebClient webClient){
+    public APIService(WebClient webClient, NasaPictureRepository pictureRepository){
         this.webClient = webClient;
 
+        this.pictureRepository = pictureRepository;
     }
     @Value("${neuefische.capstone.nasa.api.key}")
     private String API_KEY;
@@ -55,7 +58,7 @@ public class APIService {
 
     public List<NasaPicture> getArchive() {
         String startDate = "2022-05-04";
-        String endDate = "2022-05-24";
+        String endDate = "2022-05-24";  //Localdate //java.instant checken
         List<NasaPicture> nasaPictures = webClient
                 .get()
                 .uri("/planetary/apod?api_key=" + API_KEY + "&start_date=" + startDate + "&end_date=" + endDate)
@@ -65,5 +68,13 @@ public class APIService {
                 .block()
                 .getBody();
         return nasaPictures;
+    }
+
+    public NasaPicture saveNewPicture(NasaPicture nasaPicture) {
+        return pictureRepository.insert(nasaPicture);
+    }
+
+    public List<NasaPicture> getFavourites() {
+        return pictureRepository.findAll();
     }
 }

@@ -9,7 +9,7 @@ function LandingPage() {
             <button  onClick={() => navigate(`/picoftheday`)}>Picture Of The Day</button>
             <button  onClick={() => navigate(`/randompicture`)}>Random Picture</button>
             <button>My Favourites</button>
-            <button>Archive</button>
+            <button onClick={() => navigate(`/archive`)}>Archive</button>
         </div>
     );
 }

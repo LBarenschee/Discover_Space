@@ -52,4 +52,16 @@ public class APIService {
 
         return nasaPicture.get(0);
     }
+
+    public List<NasaPicture> getArchive() {
+        List<NasaPicture> nasaPictures = webClient
+                .get()
+                .uri("/planetary/apod?api_key=" + API_KEY + "&start_date=2022-01-01")
+                .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .retrieve()
+                .toEntityList(NasaPicture.class)
+                .block()
+                .getBody();
+        return nasaPictures;
+    }
 }

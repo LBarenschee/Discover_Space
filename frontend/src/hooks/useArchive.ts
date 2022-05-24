@@ -3,7 +3,7 @@ import {NasaPicture} from "../model/NasaPicture";
 import {getArchive} from "../service/api-service";
 
 export default function useArchive(){
-    const [archivePictures, setArchivePictures] = useState<NasaPicture>();
+    const [archivePictures, setArchivePictures] = useState<NasaPicture[]>();
 
     useEffect(() =>{
         getArchive()

@@ -1,6 +1,4 @@
-
 import axios from "axios";
-import exp from "constants";
 import {NasaPicture} from "../model/NasaPicture";
 
 export function getPictureOfTheDay(){
@@ -24,7 +22,6 @@ export function getFavourites(){
 }
 
 export function postFavourites(newNasaPicture: NasaPicture){
-    console.log("ich bin vorm axios")
     return axios.post("/favourites", newNasaPicture)
         .then(response => response.data)
 }

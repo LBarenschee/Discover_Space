@@ -9,7 +9,7 @@ export default function ArchivePage(){
     }
     return (
         <div>
-            {archivePictures.map(currentPicture=>{
+            {archivePictures.sort((pic1, pic2)=> (Number(new Date (pic2.date)) - Number(new Date(pic1.date)))).map(currentPicture=>{
                 return <Picture nasaPicture={currentPicture}/>
             })}
         </div>

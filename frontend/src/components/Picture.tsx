@@ -26,7 +26,7 @@ export default function Picture({nasaPicture} : PictureProps) {
             </>
         }
         <p className={"copyright"}>Copyright: {nasaPicture.copyright}</p>
-        <p className={"hdurl"}><a href={nasaPicture.hdurl}>{"Click for Hi-Res Version"}</a></p>
+        <p className={"hdurl"}><a href={nasaPicture.hdurl} target="blank" rel="noopener noreferrer">{"Click for Hi-Res Version"}</a></p>
     </div>
 
 }

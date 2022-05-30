@@ -10,6 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDate;
+
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -57,8 +62,8 @@ public class APIService {
     }
 
     public List<NasaPicture> getArchive() {
-        String startDate = "2022-05-04";
-        String endDate = "2022-05-24";  //Localdate //java.instant checken
+        LocalDate endDate = LocalDate.now();
+        LocalDate startDate = endDate.minusDays(30);
         List<NasaPicture> nasaPictures = webClient
                 .get()
                 .uri("/planetary/apod?api_key=" + API_KEY + "&start_date=" + startDate + "&end_date=" + endDate)

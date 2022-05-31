@@ -44,4 +44,8 @@ public class NasaPictureController {
         return apiService.getFavourites();
     }
 
+    @DeleteMapping("{id}")
+    public void deletePicture(@PathVariable String id){
+        apiService.deletePicture(id);
+    }
 }

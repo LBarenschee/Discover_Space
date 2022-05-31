@@ -2,18 +2,20 @@
 import "../styling/PictureOfTheDay.css";
 import {useState} from "react";
 import {NasaPicture} from "../model/NasaPicture";
-import {postFavourites} from "../service/api-service";
+import {postFavourites, deletePicture} from "../service/api-service";
 
 type PictureProps = {
     nasaPicture: NasaPicture
+    removePicture : (id : string) => void
 }
 
-export default function Picture({nasaPicture} : PictureProps) {
+export default function Picture({nasaPicture, removePicture} : PictureProps){
     const [explanationFull, setExplanationFull] = useState<boolean> (false);
 
     return <div className={"picture-of-the-day"}>
         <img className={"img"} src={nasaPicture.url} alt={""}/>
         <button onClick={()=> postFavourites(nasaPicture)}>Favourite</button>
+        <button onClick={()=> deletePicture(nasaPicture.id)}>Remove</button>
         <p className={"title"}>{nasaPicture.title}</p>
         <p className={"date"}>{nasaPicture.date}</p>
 

@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {getPictureOfTheDay} from "../service/api-service";
 import {NasaPicture} from "../model/NasaPicture";
 
-export default function useNasaPicture(){
+export default function usePictureOfTheDay(){
     const [pictureOfTheDay, setPictureOfTheDay] = useState<NasaPicture>();
     useEffect( () =>{
         getPictureOfTheDay()

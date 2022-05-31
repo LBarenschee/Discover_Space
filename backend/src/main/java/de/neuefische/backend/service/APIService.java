@@ -82,4 +82,8 @@ public class APIService {
     public List<NasaPicture> getFavourites() {
         return pictureRepository.findAll();
     }
+
+    public void deletePicture(String id) {
+        pictureRepository.deleteById(id);
+    }
 }

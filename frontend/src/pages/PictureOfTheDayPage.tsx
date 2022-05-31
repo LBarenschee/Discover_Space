@@ -1,11 +1,11 @@
-import useNasaPicture from "../hooks/useNasaPicture";
+import usePictureOfTheDay from "../hooks/usePictureOfTheDay";
 import "../styling/PictureOfTheDay.css";
 
 import Picture from "../components/Picture";
 
 
 export default function PictureOfTheDayPage() {
-    const pictureOfTheDay = useNasaPicture ()
+    const pictureOfTheDay = usePictureOfTheDay ()
     if (!pictureOfTheDay) {
         return <div></div>
     }

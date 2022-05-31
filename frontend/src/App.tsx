@@ -16,13 +16,13 @@ function App() {
         <Route path="/"
                element={<LandingPage/>}/>
         <Route path="/picoftheday"
-               element={<PictureOfTheDayPage/>}/>
+               element={<PictureOfTheDayPage makeFavourite={()=>{}} removeFavourite={() => {}}/>}/>
         <Route path="/randompicture"
-               element={<RandomPicturePage/>}/>
+               element={<RandomPicturePage makeFavourite={()=>{}} removeFavourite={() => {}}/>}/>
         <Route path="/archive"
-               element={<ArchivePage/>}/>
+               element={<ArchivePage makeFavourite={()=>{}} removeFavourite={() => {}}/>}/>
         <Route path="/favourites"
-               element={<FavouritesPage/>}/>
+               element={<FavouritesPage makeFavourite={()=>{}} removeFavourite={() => {}}/>}/>
       </Routes>
         </BrowserRouter>
       </div>

@@ -17,6 +17,7 @@ public class NasaPicture {
 
     private String title;
     @Id
+    private String id;
     private String date;
     private String explanation;
     private String copyright;

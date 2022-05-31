@@ -1,16 +1,21 @@
-import useNasaPicture from "../hooks/useNasaPicture";
+import usePictureOfTheDay from "../hooks/usePictureOfTheDay";
 import "../styling/PictureOfTheDay.css";
 import Picture from "../components/Picture";
+import {NasaPicture} from "../model/NasaPicture";
 
+type PictureOfTheDayPageProps = {
+    makeFavourite: (nasaPicture: NasaPicture) => void;
+    removeFavourite : (id : string) => void
+}
 
-export default function PictureOfTheDayPage() {
-    const pictureOfTheDay = useNasaPicture ()
+export default function PictureOfTheDayPage({makeFavourite, removeFavourite}:PictureOfTheDayPageProps) {
+    const pictureOfTheDay = usePictureOfTheDay ()
     if (!pictureOfTheDay) {
         return <div></div>
     }
     return (
         <div>
-             <Picture nasaPicture={pictureOfTheDay}/>
+             <Picture nasaPicture={pictureOfTheDay} makeFavourite={makeFavourite} removeFavourite={removeFavourite}/>
         </div>
     )
 }

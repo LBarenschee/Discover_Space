@@ -5,4 +5,5 @@ export type NasaPicture = {
     copyright : string;
     url : string;
     hdurl : string;
+    id : string;
 }

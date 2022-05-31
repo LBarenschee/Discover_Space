@@ -25,3 +25,7 @@ export function postFavourites(newNasaPicture: NasaPicture){
     return axios.post("/favourites", newNasaPicture)
         .then(response => response.data)
 }
+
+export const deleteFavourite: (id: string) => Promise<void> = (id: string) => {
+    return axios.delete(`/favourites/${id}`)
+}

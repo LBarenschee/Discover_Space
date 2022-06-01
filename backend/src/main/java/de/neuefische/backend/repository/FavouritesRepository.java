@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface NasaPictureRepository extends MongoRepository<NasaPicture, String>{
+public interface FavouritesRepository extends MongoRepository<NasaPicture, String>{
     List<NasaPicture> findByDate(String date);
 }

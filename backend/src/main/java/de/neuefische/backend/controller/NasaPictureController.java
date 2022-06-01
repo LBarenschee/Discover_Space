@@ -34,16 +34,15 @@ public class NasaPictureController {
         return apiService.getArchive();
     }
 
-    @PostMapping("/favourites")
-    public NasaPicture savePictureAsFavourite(@RequestBody NasaPicture nasaPicture){
-        return apiService.saveNewPicture(nasaPicture);
-    }
-
     @GetMapping("/favourites")
     public List<NasaPicture> getFavourites(){
         return apiService.getFavourites();
     }
 
+    @PostMapping("/favourites")
+    public NasaPicture savePictureAsFavourite(@RequestBody NasaPicture nasaPicture){
+        return apiService.saveNewPicture(nasaPicture);
+    }
     @DeleteMapping("/favourites/{id}")
     public void deletePicture(@PathVariable String id){
         apiService.deletePicture(id);

@@ -1,7 +1,7 @@
 package de.neuefische.backend.service;
 
 import de.neuefische.backend.model.NasaPicture;
-import de.neuefische.backend.repository.NasaPictureRepository;
+import de.neuefische.backend.repository.FavouritesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -10,22 +10,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 
-import java.time.Duration;
-import java.time.Instant;
 import java.time.LocalDate;
 
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
 public class APIService {
 
     private final WebClient webClient;
-    private final NasaPictureRepository pictureRepository;
+    private final FavouritesRepository pictureRepository;
 
 
     @Autowired
-    public APIService(WebClient webClient, NasaPictureRepository pictureRepository){
+    public APIService(WebClient webClient, FavouritesRepository pictureRepository){
         this.webClient = webClient;
 
         this.pictureRepository = pictureRepository;

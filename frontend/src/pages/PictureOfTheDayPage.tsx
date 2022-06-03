@@ -9,13 +9,15 @@ type PictureOfTheDayPageProps = {
 }
 
 export default function PictureOfTheDayPage({makeFavourite, removeFavourite}:PictureOfTheDayPageProps) {
-    const pictureOfTheDay = usePictureOfTheDay ()
+    const pictureOfTheDay = usePictureOfTheDay()
     if (!pictureOfTheDay) {
         return <div></div>
     }
     return (
         <div>
-             <Picture nasaPicture={pictureOfTheDay} makeFavourite={makeFavourite} removeFavourite={removeFavourite}/>
+             <Picture nasaPicture={pictureOfTheDay}
+                      makeFavourite={makeFavourite}
+                      removeFavourite={removeFavourite}/>
         </div>
     )
 }

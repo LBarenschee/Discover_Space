@@ -16,9 +16,10 @@ export default function FavouritesPage ({makeFavourite, removeFavourite} : Favou
     return (
         <div>
             {favouritePictures.favouritePictures.map(currentPicture=>{
-                return <Picture nasaPicture={currentPicture} makeFavourite={makeFavourite} removeFavourite={favouritePictures.removeFavourite}/>
+                return <Picture nasaPicture={currentPicture}
+                                makeFavourite={makeFavourite}
+                                removeFavourite={favouritePictures.removeFavourite}/>
             })}
-
         </div>
     )
 }

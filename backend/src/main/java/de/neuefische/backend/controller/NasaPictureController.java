@@ -1,5 +1,6 @@
 package de.neuefische.backend.controller;
 
+import de.neuefische.backend.dto.AddOwnPictureDto;
 import de.neuefische.backend.model.NasaPicture;
 import de.neuefische.backend.service.APIService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,8 @@ public class NasaPictureController {
     }
 
     @GetMapping("/archive")
-    public List<NasaPicture> getArchive(){
-        return apiService.getArchive();
+    public List<NasaPicture> getArchive(@RequestParam(required = false, defaultValue = "1") int pageNumber){
+        return apiService.getArchive(pageNumber);
     }
 
     @GetMapping("/favourites")
@@ -46,5 +47,10 @@ public class NasaPictureController {
     @DeleteMapping("/favourites/{id}")
     public void deletePicture(@PathVariable String id){
         apiService.deletePicture(id);
+    }
+
+    @PostMapping("(/mypictures")
+    public NasaPicture postNewPicture(AddOwnPictureDto ownPictureDto){
+        return apiService.addNewPicture(ownPictureDto);
     }
 }

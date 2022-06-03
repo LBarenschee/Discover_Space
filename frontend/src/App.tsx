@@ -6,6 +6,7 @@ import PictureOfTheDayPage from "./pages/PictureOfTheDayPage";
 import RandomPicturePage from "./pages/RandomPicturePage";
 import ArchivePage from "./pages/ArchivePage";
 import FavouritesPage from "./pages/FavouritesPage";
+import MyPicturesPage from "./pages/MyPicturesPage";
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
                element={<ArchivePage makeFavourite={()=>{}} removeFavourite={() => {}}/>}/>
         <Route path="/favourites"
                element={<FavouritesPage makeFavourite={()=>{}} removeFavourite={() => {}}/>}/>
+        {/*<Route path="/mypictures"
+               element={<MyPicturesPage makeFavourite={()=>{}} removeFavourite={() => {}}/>}/>*/}
       </Routes>
         </BrowserRouter>
       </div>

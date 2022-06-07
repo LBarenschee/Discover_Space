@@ -30,8 +30,8 @@ export const deleteFavourite: (id: string) => Promise<void> = (id: string) => {
     return axios.delete(`/favourites/${id}`)
 }
 
-export const postOwnPicture: (newPicture: Omit<NasaPicture, "id">) =>
-    Promise<NasaPicture> = (newPicture) => {
-    return axios.post("/mypictures")
+export const postOwnPicture: (newNasaPictureFormData : any) => Promise<NasaPicture> = (newNasaPictureFormData) => {
+    return axios.post("/mypictures", newNasaPictureFormData)
                 .then(response => response.data)
 }
+

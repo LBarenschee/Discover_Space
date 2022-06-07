@@ -1,4 +1,4 @@
-import useFavourites from "../hooks/useFavourites";
+
 import Picture from "../components/Picture";
 import "../styling/PictureOfTheDay.css";
 import {NasaPicture} from "../model/NasaPicture";
@@ -6,19 +6,19 @@ import {NasaPicture} from "../model/NasaPicture";
 type FavouritesPageProps = {
     makeFavourite: (nasaPicture: NasaPicture) => void;
     removeFavourite : (id : string) => void
+    favouritePictures : NasaPicture[]
 }
 
-export default function FavouritesPage ({makeFavourite, removeFavourite} : FavouritesPageProps){
-    const favouritePictures = useFavourites()
+export default function FavouritesPage ({makeFavourite, removeFavourite, favouritePictures} : FavouritesPageProps){
     if(!favouritePictures) {
         return <div></div>
     }
     return (
         <div>
-            {favouritePictures.favouritePictures.map(currentPicture=>{
+            {favouritePictures.map(currentPicture=>{
                 return <Picture nasaPicture={currentPicture}
                                 makeFavourite={makeFavourite}
-                                removeFavourite={favouritePictures.removeFavourite}/>
+                                removeFavourite={removeFavourite}/>
             })}
         </div>
     )

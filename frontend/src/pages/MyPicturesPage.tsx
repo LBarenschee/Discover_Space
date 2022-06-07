@@ -1,6 +1,8 @@
 import {NasaPicture} from "../model/NasaPicture";
 import usePicture from "../hooks/usePictures";
 import Picture from "../components/Picture";
+import AddOwnPicture from "../components/AddOwnPicture";
+import {postOwnPicture} from "../service/api-service";
 
 
 type MyPicturesPageProps = {
@@ -22,6 +24,7 @@ export default function MyPicturesPage({makeFavourite, removeFavourite}: MyPictu
                                 makeFavourite={makeFavourite}
                                 removeFavourite={removeFavourite}/>
             })}
+            <AddOwnPicture addPicture={postOwnPicture}/>
         </div>
     )
 }

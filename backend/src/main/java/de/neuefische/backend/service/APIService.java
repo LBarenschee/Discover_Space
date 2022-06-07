@@ -1,6 +1,6 @@
 package de.neuefische.backend.service;
 
-import de.neuefische.backend.dto.AddOwnPictureDto;
+
 import de.neuefische.backend.model.NasaPicture;
 import de.neuefische.backend.repository.FavouritesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +13,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.LocalDate;
 
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAmount;
+
 import java.util.List;
 
 @Service
@@ -61,8 +60,9 @@ public class APIService {
     }
 
     public List<NasaPicture> getArchive(int pageNumber) {
-        LocalDate endDate = LocalDate.now().minusDays(pageNumber * 30L - 30L);
-        LocalDate startDate = endDate.minusDays(pageNumber * 30L - 29L);
+        LocalDate endDate = LocalDate.now().minusDays(pageNumber * 31L - 30L);
+        //LocalDate startDate = LocalDate.now().minusDays(pageNumber * 30L +1);
+        LocalDate startDate = endDate.minusDays(30);
         List<NasaPicture> nasaPictures = webClient
                 .get()
                 .uri("/planetary/apod?api_key=" + API_KEY
@@ -88,18 +88,5 @@ public class APIService {
         pictureRepository.deleteById(id);
     }
 
-    public NasaPicture addNewPicture(AddOwnPictureDto ownPictureDto) {
 
-        if(ownPictureDto.getTitle() == null){
-            throw new IllegalArgumentException("Title of picture was null");
-
-        }
-        NasaPicture newPicture = NasaPicture.builder()
-                .title(ownPictureDto.getTitle())
-                .date(ownPictureDto.getDate())
-                .explanation(ownPictureDto.getExplanation())
-                .copyright(ownPictureDto.getCopyright())
-                .build();
-        return pictureRepository.insert(newPicture);
-    }
 }

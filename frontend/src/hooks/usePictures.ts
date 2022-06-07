@@ -10,4 +10,5 @@ export default function (){
             .then(addedPicture => setPictures([...pictures, addedPicture]))
     }
     return{pictures, addPicture}
+
 }

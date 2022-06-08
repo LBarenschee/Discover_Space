@@ -11,8 +11,8 @@ export function getRandomPicture(){
         .then(response => response.data)
 }
 
-export function getArchive(){
-    return axios.get("/archive")
+export function getArchive(pageNumber : number=1){
+    return axios.get("/archive?pageNumber=" + pageNumber)
         .then(response => response.data)
 }
 
@@ -28,4 +28,14 @@ export function postFavourites(newNasaPicture: NasaPicture){
 
 export const deleteFavourite: (id: string) => Promise<void> = (id: string) => {
     return axios.delete(`/favourites/${id}`)
+}
+
+export const postOwnPicture: (newNasaPictureFormData : any) => Promise<NasaPicture> = (newNasaPictureFormData) => {
+    return axios.post("/mypictures", newNasaPictureFormData)
+                .then(response => response.data)
+}
+
+export function getOwnPicture(){
+    return axios.get("/mypictures")
+                .then(response => response.data)
 }

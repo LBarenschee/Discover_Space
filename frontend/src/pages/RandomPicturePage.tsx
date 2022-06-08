@@ -15,7 +15,9 @@ export default function RandomPicturePage ({makeFavourite, removeFavourite}:Rand
     }
     return (
         <div>
-            <Picture nasaPicture={randomPicture} makeFavourite={makeFavourite} removeFavourite={removeFavourite}/>
+            <Picture nasaPicture={randomPicture}
+                     makeFavourite={makeFavourite}
+                     removeFavourite={removeFavourite}/>
         </div>
     )
 

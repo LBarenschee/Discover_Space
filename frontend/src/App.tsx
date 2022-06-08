@@ -6,9 +6,12 @@ import PictureOfTheDayPage from "./pages/PictureOfTheDayPage";
 import RandomPicturePage from "./pages/RandomPicturePage";
 import ArchivePage from "./pages/ArchivePage";
 import FavouritesPage from "./pages/FavouritesPage";
+import MyPicturesPage from "./pages/MyPicturesPage";
+import useFavourites from "./hooks/useFavourites";
 
 
 function App() {
+    const {favouritePictures, makeFavourite, removeFavourite} = useFavourites()
   return (
     <div className="App">
         <BrowserRouter>
@@ -16,13 +19,15 @@ function App() {
         <Route path="/"
                element={<LandingPage/>}/>
         <Route path="/picoftheday"
-               element={<PictureOfTheDayPage makeFavourite={()=>{}} removeFavourite={() => {}}/>}/>
+               element={<PictureOfTheDayPage makeFavourite={makeFavourite} removeFavourite={removeFavourite}/>}/>
         <Route path="/randompicture"
-               element={<RandomPicturePage makeFavourite={()=>{}} removeFavourite={() => {}}/>}/>
+               element={<RandomPicturePage makeFavourite={makeFavourite} removeFavourite={removeFavourite}/>}/>
         <Route path="/archive"
-               element={<ArchivePage makeFavourite={()=>{}} removeFavourite={() => {}}/>}/>
+               element={<ArchivePage makeFavourite={makeFavourite} removeFavourite={removeFavourite}/>}/>
         <Route path="/favourites"
-               element={<FavouritesPage makeFavourite={()=>{}} removeFavourite={() => {}}/>}/>
+               element={<FavouritesPage makeFavourite={makeFavourite} removeFavourite={removeFavourite} favouritePictures={favouritePictures}/>}/>
+        <Route path="/mypictures"
+               element={<MyPicturesPage makeFavourite={()=>{}} removeFavourite={() => {}}/>}/>
       </Routes>
         </BrowserRouter>
       </div>

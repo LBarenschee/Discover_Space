@@ -1,10 +1,15 @@
 package de.neuefische.backend.service;
 
+import de.neuefische.backend.model.NasaPicture;
+import de.neuefische.backend.repository.FavouritesRepository;
 import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.*;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class APIServiceTest {
+    private final FavouritesRepository favouritesRepository = mock(FavouritesRepository.class);
+    private final APIService apiService = mock(APIService.class);
+
 
 
     @Test
@@ -16,4 +21,22 @@ class APIServiceTest {
         //THEN
     }
 
+    @Test
+    void postPictureInFavourites(){
+        //GIVEN
+
+        //WHEN
+
+        //THEN
+    }
+
+    @Test
+    void deletePictureById_ifIdIsValid(){
+        //GIVEN
+
+        //WHEN
+
+
+        //THEN
+    }
 }

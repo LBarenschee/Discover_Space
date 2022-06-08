@@ -14,7 +14,7 @@ export default function useFavourites(){
     const makeFavourite =  (nasaPicture : NasaPicture) =>{
         postFavourites(nasaPicture)
             .then((nasaPicture)=> {setFavouritePictures([...favouritePictures, nasaPicture])
-            console.log("i got clicked")})
+            })
     }
 
     const removeFavourite = (id: string) =>{

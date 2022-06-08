@@ -3,6 +3,7 @@ import {toast} from 'react-toastify';
 import {NasaPicture} from "../model/NasaPicture";
 
 
+
 type OwnPictureProps={
     addPicture : (newNasaPictureFormData: FormData) => Promise<NasaPicture>
 }
@@ -47,6 +48,7 @@ export default function AddOwnPicture({addPicture}: OwnPictureProps){
         setTitle(``)
 
 
+
     }
 
 
@@ -61,13 +63,12 @@ export default function AddOwnPicture({addPicture}: OwnPictureProps){
         <div className={"new-pciture"}>
             <form onSubmit={onAdd}>
                 <input type={"text"} placeholder="Title" value={title} onChange={event => setTitle(event.target.value)}/>
-                <input type={"text"} placeholder="Date" value={date} onChange={event => setTitle(event.target.value)}/>
-                <input type={"text"} placeholder="Explanation" value={explanation} onChange={event => setTitle(event.target.value)}/>
-                <input type={"text"} placeholder="Copyright" value={copyright} onChange={event => setTitle(event.target.value)}/>
-                <input type={"text"} placeholder="Url" value={url} onChange={event => setTitle(event.target.value)}/>
-                <input type={"text"} placeholder="HD-Url" value={hdurl} onChange={event => setTitle(event.target.value)}/>
+                <input type={"text"} placeholder="Date" value={date} onChange={event => setDate(event.target.value)}/>
+                <input type={"text"} placeholder="Explanation" value={explanation} onChange={event => setExplanation(event.target.value)}/>
+                <input type={"text"} placeholder="Copyright" value={copyright} onChange={event => setCopyright(event.target.value)}/>
+                <input type={"text"} placeholder="Url" value={url} onChange={event => setUrl(event.target.value)}/>
+                <input type={"text"} placeholder="HD-Url" value={hdurl} onChange={event => setHdurl(event.target.value)}/>
                 <input type={"file"} onChange={fileChangedHandler}/>
-
                 <button>save</button>
             </form>
 

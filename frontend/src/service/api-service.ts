@@ -35,3 +35,7 @@ export const postOwnPicture: (newNasaPictureFormData : any) => Promise<NasaPictu
                 .then(response => response.data)
 }
 
+export function getOwnPicture(){
+    return axios.get("/mypictures")
+                .then(response => response.data)
+}

@@ -21,7 +21,7 @@ public class APIService {
 
     private final WebClient webClient;
     private final FavouritesRepository pictureRepository;
-
+    private static final long PAGE_SIZE = 30;
 
     @Autowired
     public APIService(WebClient webClient, FavouritesRepository pictureRepository){
@@ -60,9 +60,8 @@ public class APIService {
     }
 
     public List<NasaPicture> getArchive(int pageNumber) {
-        LocalDate endDate = LocalDate.now().minusDays(pageNumber * 31L - 30L);
-        //LocalDate startDate = LocalDate.now().minusDays(pageNumber * 30L +1);
-        LocalDate startDate = endDate.minusDays(30);
+        LocalDate endDate = LocalDate.now().minusDays(pageNumber * PAGE_SIZE - PAGE_SIZE);
+        LocalDate startDate = endDate.minusDays(PAGE_SIZE - 1);
         List<NasaPicture> nasaPictures = webClient
                 .get()
                 .uri("/planetary/apod?api_key=" + API_KEY

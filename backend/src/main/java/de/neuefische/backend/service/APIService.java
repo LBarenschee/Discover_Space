@@ -21,7 +21,7 @@ public class APIService {
 
     private final WebClient webClient;
     private final FavouritesRepository pictureRepository;
-    private static final long PAGE_SIZE = 30;
+    private static final long PAGE_SIZE = 10;
 
     @Autowired
     public APIService(WebClient webClient, FavouritesRepository pictureRepository){

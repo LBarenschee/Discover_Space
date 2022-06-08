@@ -11,8 +11,8 @@ export function getRandomPicture(){
         .then(response => response.data)
 }
 
-export function getArchive(){
-    return axios.get("/archive")
+export function getArchive(pageNumber : number=1){
+    return axios.get("/archive?pageNumber=" + pageNumber)
         .then(response => response.data)
 }
 

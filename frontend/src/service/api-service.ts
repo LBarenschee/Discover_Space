@@ -1,41 +1,62 @@
 import axios from "axios";
 import {NasaPicture} from "../model/NasaPicture";
 
-export function getPictureOfTheDay(){
-    return axios.get("/picoftheday")
+export const getPictureOfTheDay: (token?: string) => Promise<NasaPicture> = (token) =>{
+    return axios.get("/api/picoftheday", token
+        ? {headers: {"Authorization": token}}
+        : {})
         .then(response => response.data)
 }
 
-export function getRandomPicture(){
-    return axios.get("/randompicture")
+export const getRandomPicture: (token?: string) => Promise<NasaPicture> = (token) =>{
+    return axios.get("/api/randompicture", token
+        ? {headers: {"Authorization": token}}
+        : {})
         .then(response => response.data)
 }
 
-export function getArchive(pageNumber : number=1){
-    return axios.get("/archive?pageNumber=" + pageNumber)
+export const getArchive:(pageNumber: number, token?: string) =>
+    Promise<NasaPicture[]> = (pageNumber = 1, token) =>{
+    return axios.get("/api/archive?pageNumber=" + pageNumber, token
+        ? {headers: {"Authorization": token}}
+        : {})
         .then(response => response.data)
 }
 
-export function getFavourites(){
-    return axios.get("/favourites")
+export const getFavourites:(token?: string) =>
+    Promise<NasaPicture[]> = (token) =>{
+    return axios.get("/api/favourites", token
+        ? {headers: {"Authorization": token}}
+        : {})
         .then(response => response.data)
 }
 
-export function postFavourites(newNasaPicture: NasaPicture){
-    return axios.post("/favourites", newNasaPicture)
+export const postFavourites:(newNasaPicture: NasaPicture, token?: string) =>
+    Promise<NasaPicture> = (newNasaPicture, token) =>{
+    return axios.post("/api/favourites", newNasaPicture, token
+        ? {headers: {"Authorization": token}}
+        : {})
         .then(response => response.data)
 }
 
-export const deleteFavourite: (id: string) => Promise<void> = (id: string) => {
-    return axios.delete(`/favourites/${id}`)
+export const deleteFavourite: (id: string, token?: string) =>
+    Promise<void> = (id: string, token) => {
+    return axios.delete(`/api/favourites/${id}`, token
+        ? {headers: {"Authorization": token}}
+        : {})
 }
 
-export const postOwnPicture: (newNasaPictureFormData : any) => Promise<NasaPicture> = (newNasaPictureFormData) => {
-    return axios.post("/mypictures", newNasaPictureFormData)
+export const postOwnPicture: (newNasaPictureFormData : any, token?: string) =>
+    Promise<NasaPicture> = (newNasaPictureFormData, token) => {
+    return axios.post("/api/mypictures", newNasaPictureFormData, token
+        ? {headers: {"Authorization": token}}
+        : {})
                 .then(response => response.data)
 }
 
-export function getOwnPicture(){
-    return axios.get("/mypictures")
+export function getOwnPicture(token?: string){
+    return axios.get("/api/mypictures", token
+        ? {headers: {"Authorization": token}}
+        : {})
                 .then(response => response.data)
 }

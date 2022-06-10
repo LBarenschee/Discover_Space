@@ -47,8 +47,6 @@ export default function AddOwnPicture({addPicture}: OwnPictureProps){
         addPicture(formData);
         setTitle(``)
 
-
-
     }
 
 

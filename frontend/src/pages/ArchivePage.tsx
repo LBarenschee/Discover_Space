@@ -9,6 +9,7 @@ type ArchivePageProps = {
 }
 export default function ArchivePage({makeFavourite, removeFavourite}:ArchivePageProps){
     const {archivePictures, loadNextPage} = useArchive()
+    const onLoadMore = () => {loadNextPage()}
     if (!archivePictures){
         return <div></div>
     }
@@ -21,7 +22,7 @@ export default function ArchivePage({makeFavourite, removeFavourite}:ArchivePage
                                 removeFavourite={removeFavourite}
                                 key={currentPicture.date}/>
             })}
-            <button onClick={loadNextPage}>Load More</button>
+            <button onClick={onLoadMore}>Load More</button>
         </div>
     )
 

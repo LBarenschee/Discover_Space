@@ -10,7 +10,7 @@ import MyPicturesPage from "./pages/MyPicturesPage";
 import useFavourites from "./hooks/useFavourites";
 import LoginPage from "./pages/LoginPage";
 import RequireAuth from "./routing/RequireAuth";
-
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
     const {favouritePictures, makeFavourite, removeFavourite} = useFavourites()

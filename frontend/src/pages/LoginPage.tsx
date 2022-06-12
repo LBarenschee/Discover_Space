@@ -16,7 +16,7 @@ export default function LoginPage(){
         <form onSubmit={onSubmit}>
             <input type={"text"} value={username} placeholder={"Username"} onChange={(event) => setUsername(event.target.value) }/>
             <input type={"password"} value={password} placeholder={"Password"} onChange={(event) => setPassword(event.target.value)}/>
-            <button type={"submit"} onClick={() => navigate(`/landing`)}>Login</button>
+            <button type={"submit"}>Login</button>
         </form>
     </div>
 }

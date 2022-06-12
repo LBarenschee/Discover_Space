@@ -3,6 +3,8 @@ package de.neuefische.backend.controller;
 import de.neuefische.backend.TestWebClientConfig;
 import de.neuefische.backend.model.NasaPicture;
 import de.neuefische.backend.repository.FavouritesRepository;
+import de.neuefische.backend.security.model.AppUser;
+import de.neuefische.backend.security.repository.AppUserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import reactor.core.publisher.Mono;
@@ -26,11 +29,19 @@ import static org.mockito.Mockito.when;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class NasaPictureControllerTest {
 
+    private String jwtToken;
+
     @Autowired
     private TestWebClientConfig testWebClientConfig;
 
     @Autowired
     private WebTestClient testClient;
+
+    @Autowired
+    private AppUserRepository appUserRepository;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Autowired
     private FavouritesRepository favouritesRepository;
@@ -41,6 +52,9 @@ class NasaPictureControllerTest {
     @BeforeEach
     public void cleanUp() {
         favouritesRepository.deleteAll();
+        appUserRepository.deleteAll();
+        jwtToken = generateJWTToken();
+
     }
 
     @Test
@@ -64,7 +78,8 @@ class NasaPictureControllerTest {
                         .build()));
         //WHEN
         NasaPicture actual = testClient.get()
-                .uri("/picoftheday")
+                .uri("/api/picoftheday")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBody(NasaPicture.class)
@@ -107,7 +122,8 @@ class NasaPictureControllerTest {
 
         //WHEN
         NasaPicture actual = testClient.get()
-                .uri("/randompicture")
+                .uri("/api/randompicture")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBody(NasaPicture.class)
@@ -152,7 +168,8 @@ class NasaPictureControllerTest {
 
         //WHEN
         List<NasaPicture> actual = testClient.get()
-                .uri("/archive")
+                .uri("/api/archive")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBodyList(NasaPicture.class)
@@ -179,7 +196,8 @@ class NasaPictureControllerTest {
     void getFavourites_whenListIsEmpty() {
         //WHEN
         List<NasaPicture> actual = testClient.get()
-                .uri("/favourites")
+                .uri("/api/favourites")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBodyList(NasaPicture.class)
@@ -210,7 +228,8 @@ class NasaPictureControllerTest {
 
         //WHEN
         List<NasaPicture> actual = testClient.get()
-                .uri("/favourites")
+                .uri("/api/favourites")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBodyList(NasaPicture.class)
@@ -251,7 +270,8 @@ class NasaPictureControllerTest {
 
         //WHEN
         List<NasaPicture> actual = testClient.post()
-                .uri("/favourites")
+                .uri("/api/favourites")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .bodyValue(newPicture)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -291,7 +311,8 @@ class NasaPictureControllerTest {
                 .build();
 
         NasaPicture addedPicture = testClient.post()
-                .uri("http://localhost:" + port + "/favourites")
+                .uri("http://localhost:" + port + "/api/favourites")
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .bodyValue(newPicture)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
@@ -301,10 +322,32 @@ class NasaPictureControllerTest {
         //WHEN
         assertNotNull(addedPicture);
         testClient.delete()
-                .uri("http://localhost:" + port + "/favourites/" + addedPicture.getId())
+                .uri("http://localhost:" + port + "/api/favourites/" + addedPicture.getId())
+                .headers(http -> http.setBearerAuth(jwtToken))
                 .exchange()
         //THEN
                 .expectStatus().is2xxSuccessful();
+    }
 
+    private String generateJWTToken() {
+        String hashedPassword = passwordEncoder.encode("passwort");
+        AppUser testUser = AppUser.builder()
+                .username("testuser")
+                .id("123")
+                .password(hashedPassword)
+                .build();
+        appUserRepository.save(testUser);
+
+        return testClient.post()
+                .uri("/auth/login")
+                .bodyValue(AppUser.builder()
+                        .username("testuser")
+                        .id("123")
+                        .password("passwort")
+                        .build())
+                .exchange()
+                .expectBody(String.class)
+                .returnResult()
+                .getResponseBody();
     }
 }

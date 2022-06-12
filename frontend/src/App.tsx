@@ -17,10 +17,10 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/"
+        <Route path="/login"
                element={<LoginPage/>}/>
       <Route element={<RequireAuth/>}>
-        <Route path="/landing"
+        <Route path="/"
                element={<LandingPage/>}/>
         <Route path="/picoftheday"
                element={<PictureOfTheDayPage makeFavourite={makeFavourite} removeFavourite={removeFavourite}/>}/>

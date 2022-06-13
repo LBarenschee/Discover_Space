@@ -15,7 +15,6 @@ export default function usePictures(){
     },[token])
 
     const addPicture = (newNasaPictureFormData: FormData) => {
-        console.log(token)
         return postOwnPicture(newNasaPictureFormData, token)
             .then(addedPicture => setPictures([...pictures, addedPicture]))
             .catch( ()=> toast.error("No picture was added"))

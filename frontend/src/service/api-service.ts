@@ -48,6 +48,7 @@ export const deleteFavourite: (id: string, token?: string) =>
 
 export const postOwnPicture: (newNasaPictureFormData : any, token?: string) =>
     Promise<NasaPicture> = (newNasaPictureFormData, token) => {
+    console.log(token)
     return axios.post("/api/mypictures", newNasaPictureFormData, token
         ? {headers: {"Authorization": token}}
         : {})

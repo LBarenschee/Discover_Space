@@ -14,10 +14,11 @@ export default function usePictures(){
             .catch(()=> toast.error("No pictures available"))
     },[token])
 
-    const addPicture = (newPicture: Omit<NasaPicture, "id">) => {
-        postOwnPicture(newPicture, token)
+    const addPicture = (newNasaPictureFormData: FormData) => {
+        console.log(token)
+        return postOwnPicture(newNasaPictureFormData, token)
             .then(addedPicture => setPictures([...pictures, addedPicture]))
+            .catch( ()=> toast.error("No picture was added"))
     }
     return{pictures, addPicture}
-
 }

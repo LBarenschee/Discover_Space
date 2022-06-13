@@ -3,6 +3,8 @@ import usePicture from "../hooks/usePictures";
 import Picture from "../components/Picture";
 import AddOwnPicture from "../components/AddOwnPicture";
 import {postOwnPicture} from "../service/api-service";
+import "../styling/MyPicturesPage.css";
+
 
 
 type MyPicturesPageProps = {
@@ -11,7 +13,7 @@ type MyPicturesPageProps = {
 }
 
 export default function MyPicturesPage({makeFavourite, removeFavourite}: MyPicturesPageProps){
-    const {pictures} = usePicture()
+    const {pictures, addPicture} = usePicture()
     if(!pictures){
         return<div></div>
     }
@@ -24,7 +26,7 @@ export default function MyPicturesPage({makeFavourite, removeFavourite}: MyPictu
                                 makeFavourite={makeFavourite}
                                 removeFavourite={removeFavourite}/>
             })}
-            <AddOwnPicture addPicture={postOwnPicture}/>
+            <AddOwnPicture addPicture={addPicture}/>
         </div>
     )
 }

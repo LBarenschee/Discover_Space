@@ -3,9 +3,8 @@ import {toast} from 'react-toastify';
 import {NasaPicture} from "../model/NasaPicture";
 
 
-
 type OwnPictureProps={
-    addPicture : (newNasaPictureFormData: FormData) => Promise<NasaPicture>
+    addPicture : (newNasaPictureFormData: FormData) => Promise<any>
 }
 
 export default function AddOwnPicture({addPicture}: OwnPictureProps){
@@ -49,7 +48,6 @@ export default function AddOwnPicture({addPicture}: OwnPictureProps){
 
     }
 
-
     const fileChangedHandler = (event : ChangeEvent<HTMLInputElement>) =>{
         const file = event.target.files?.item(0)
         if(file !== null){
@@ -69,7 +67,6 @@ export default function AddOwnPicture({addPicture}: OwnPictureProps){
                 <input type={"file"} onChange={fileChangedHandler}/>
                 <button>save</button>
             </form>
-
         </div>
     )
 }

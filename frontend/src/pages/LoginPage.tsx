@@ -1,12 +1,10 @@
 import {FormEvent, useContext, useState} from "react";
 import {AuthContext} from "../context/AuthProvider";
-import {useNavigate} from "react-router-dom";
-import {toast} from "react-toastify";
+
 
 export default function LoginPage(){
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
-    const navigate = useNavigate()
     const {login} = useContext(AuthContext)
 
     const onSubmit = (event:FormEvent<HTMLFormElement>) => {

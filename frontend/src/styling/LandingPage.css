@@ -16,6 +16,7 @@
  grid-gap: 15px;
  grid-auto-rows: 110px;
  justify-content: space-between;
+ color: #000;
 }
 body {
  min-width: fit-content;

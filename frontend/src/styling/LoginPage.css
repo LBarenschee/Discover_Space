@@ -1,0 +1,23 @@
+.login-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 50%;
+    font-size: xxx-large;
+    font-weight: bold;
+    font-family: Tahoma;
+    color: white;
+}
+.text-fields{
+}
+.login-page button{
+    border: none;
+    padding: 10px 25px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Tahoma;
+    font-weight: bold;
+}

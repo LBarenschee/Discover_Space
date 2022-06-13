@@ -1,5 +1,5 @@
 import useArchive from "../hooks/useArchive";
-import "../styling/PictureOfTheDay.css";
+import "../styling/Picture.css";
 import Picture from "../components/Picture";
 import {NasaPicture} from "../model/NasaPicture";
 

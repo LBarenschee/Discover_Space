@@ -8,7 +8,6 @@ export default function usePictures(){
     const [pictures, setPictures] = useState<NasaPicture[]>([]);
     const {token} = useContext(AuthContext);
 
-
     useEffect( () =>{
         getOwnPicture(token)
             .then(pictures => setPictures(pictures))
@@ -16,12 +15,9 @@ export default function usePictures(){
     },[token])
 
     const addPicture = (newPicture: Omit<NasaPicture, "id">) => {
-        postOwnPicture(newPicture)
+        postOwnPicture(newPicture, token)
             .then(addedPicture => setPictures([...pictures, addedPicture]))
     }
-
-
-
     return{pictures, addPicture}
 
 }

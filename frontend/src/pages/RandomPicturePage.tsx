@@ -1,4 +1,4 @@
-import "../styling/RandomPicture.css";
+import "../styling/Picture.css";
 import useRandomPicture from "../hooks/useRandomPicture";
 import Picture from "../components/Picture";
 import {NasaPicture} from "../model/NasaPicture";

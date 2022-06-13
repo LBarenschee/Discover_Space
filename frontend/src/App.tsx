@@ -10,12 +10,15 @@ import MyPicturesPage from "./pages/MyPicturesPage";
 import useFavourites from "./hooks/useFavourites";
 import LoginPage from "./pages/LoginPage";
 import RequireAuth from "./routing/RequireAuth";
+import 'react-toastify/dist/ReactToastify.css';
+import {ToastContainer} from "react-toastify";
 
 
 function App() {
     const {favouritePictures, makeFavourite, removeFavourite} = useFavourites()
   return (
     <div className="App">
+        <ToastContainer/>
       <Routes>
         <Route path="/login"
                element={<LoginPage/>}/>
@@ -31,7 +34,7 @@ function App() {
         <Route path="/favourites"
                element={<FavouritesPage makeFavourite={makeFavourite} removeFavourite={removeFavourite} favouritePictures={favouritePictures}/>}/>
         <Route path="/mypictures"
-               element={<MyPicturesPage makeFavourite={()=>{}} removeFavourite={() => {}}/>}/>
+               element={<MyPicturesPage makeFavourite={makeFavourite} removeFavourite={removeFavourite}/>}/>
       </Route>
           </Routes>
       </div>

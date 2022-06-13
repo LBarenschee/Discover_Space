@@ -17,6 +17,7 @@ export default function useArchive(){
 
     useEffect(() =>{
         loadNextPage()
+        //eslint-disable-next-line
     },[])
 
     return {archivePictures, loadNextPage}

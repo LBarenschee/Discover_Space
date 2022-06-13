@@ -16,7 +16,7 @@ export default function MyPicturesPage({makeFavourite, removeFavourite}: MyPictu
         return<div></div>
     }
     return(
-        <div>
+        <div className="my-pcitures-page">
             {pictures
                 .sort ((pic1, pic2) => (Number (new Date (pic2.date)) - Number (new Date (pic1.date))))
                 .map (currentPicture => {

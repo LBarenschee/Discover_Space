@@ -1,14 +1,18 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {getPictureOfTheDay} from "../service/api-service";
 import {NasaPicture} from "../model/NasaPicture";
+import {AuthContext} from "../context/AuthProvider";
+import {toast} from "react-toastify";
 
 export default function usePictureOfTheDay(){
     const [pictureOfTheDay, setPictureOfTheDay] = useState<NasaPicture>();
+    const {token} = useContext(AuthContext);
+
     useEffect( () =>{
-        getPictureOfTheDay()
+        getPictureOfTheDay(token)
             .then(pictureOfTheDay => setPictureOfTheDay(pictureOfTheDay))
-            .catch(()=> console.error("Can't find Picture Of The Day"))
-    },[])
+            .catch(()=> toast.error("Can't find Picture Of The Day"))
+    },[token])
     return pictureOfTheDay
 
 

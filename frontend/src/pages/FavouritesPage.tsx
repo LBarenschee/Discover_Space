@@ -1,6 +1,6 @@
 
 import Picture from "../components/Picture";
-import "../styling/PictureOfTheDay.css";
+import "../styling/Picture.css";
 import {NasaPicture} from "../model/NasaPicture";
 
 type FavouritesPageProps = {

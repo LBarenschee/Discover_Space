@@ -43,7 +43,6 @@ public class APIService {
                 .toEntity(NasaPicture.class)
                 .block()
                 .getBody();
-
         return nasaPicture;
     }
 

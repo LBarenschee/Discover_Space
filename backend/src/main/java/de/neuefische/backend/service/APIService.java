@@ -74,17 +74,7 @@ public class APIService {
         return nasaPictures;
     }
 
-    public NasaPicture saveNewPicture(NasaPicture nasaPicture) {
-        return pictureRepository.insert(nasaPicture);
-    }
 
-    public List<NasaPicture> getFavourites() {
-        return pictureRepository.findAll();
-    }
-
-    public void deletePicture(String id) {
-        pictureRepository.deleteById(id);
-    }
 
 
 }

@@ -33,6 +33,7 @@ public class PictureService {
                 .date(ownPictureDto.getDate())
                 .explanation(ownPictureDto.getExplanation())
                 .copyright(ownPictureDto.getCopyright())
+                .hdurl(url)
                 .url(url)
                 .build();
         return pictureRepository.insert(newPicture);
@@ -40,5 +41,17 @@ public class PictureService {
 
     public List<NasaPicture> getMyPictures() {
         return pictureRepository.findAll();
+    }
+
+    public NasaPicture saveNewPicture(NasaPicture nasaPicture) {
+        return pictureRepository.insert(nasaPicture);
+    }
+
+    public List<NasaPicture> getFavourites() {
+        return pictureRepository.findAll();
+    }
+
+    public void deletePicture(String id) {
+        pictureRepository.deleteById(id);
     }
 }

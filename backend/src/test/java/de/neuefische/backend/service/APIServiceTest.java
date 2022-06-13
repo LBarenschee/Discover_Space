@@ -12,31 +12,4 @@ class APIServiceTest {
 
 
 
-    @Test
-    public void checkIf_apiKey_isValid(){
-        //GIVEN
-
-        //WHEN
-
-        //THEN
-    }
-
-    @Test
-    void postPictureInFavourites(){
-        //GIVEN
-
-        //WHEN
-
-        //THEN
-    }
-
-    @Test
-    void deletePictureById_ifIdIsValid(){
-        //GIVEN
-
-        //WHEN
-
-
-        //THEN
-    }
 }

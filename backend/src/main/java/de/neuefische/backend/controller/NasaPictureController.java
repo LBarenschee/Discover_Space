@@ -44,16 +44,16 @@ public class NasaPictureController {
 
     @GetMapping("/favourites")
     public List<NasaPicture> getFavourites(){
-        return apiService.getFavourites();
+        return pictureService.getFavourites();
     }
 
     @PostMapping("/favourites")
     public NasaPicture savePictureAsFavourite(@RequestBody NasaPicture nasaPicture){
-        return apiService.saveNewPicture(nasaPicture);
+        return pictureService.saveNewPicture(nasaPicture);
     }
     @DeleteMapping("/favourites/{id}")
     public void deletePicture(@PathVariable String id){
-        apiService.deletePicture(id);
+        pictureService.deletePicture(id);
     }
 
     @PostMapping("/mypictures")

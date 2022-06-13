@@ -250,7 +250,6 @@ class NasaPictureControllerTest {
                 .build()
         );
         assertEquals(expected, actual);
-
     }
 
     @Test
@@ -327,6 +326,65 @@ class NasaPictureControllerTest {
                 .exchange()
         //THEN
                 .expectStatus().is2xxSuccessful();
+    }
+
+    @Test
+    void getMyPictures_whenListIsEmpty() {
+        //WHEN
+        List<NasaPicture> actual = testClient.get()
+                .uri("/api/mypictures")
+                .headers(http -> http.setBearerAuth(jwtToken))
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBodyList(NasaPicture.class)
+                .returnResult()
+                .getResponseBody();
+
+        //THEN
+        List<NasaPicture> expected = List.of();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getMyPictures_whenListIsFilled(){
+        //GIVEN
+        favouritesRepository.save(NasaPicture.builder()
+                .title("A Digital Lunar Eclipse")
+                .id("123456")
+                .date("2022-05-19")
+                .explanation("Description of Picture")
+                .copyright("Michael Cain")
+                .url("https://apod.nasa.gov/apod/image/2205/TLE_2022-05-16-02-59-35s1024.jpg")
+                .hdurl("https://apod.nasa.gov/apod/image/2205/TLE_2022-05-16-02-59-35s.jpg")
+                .mediaType("image")
+                .serviceVersion("v1")
+                .build()
+        );
+
+        //WHEN
+        List<NasaPicture> actual = testClient.get()
+                .uri("/api/mypictures")
+                .headers(http -> http.setBearerAuth(jwtToken))
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBodyList(NasaPicture.class)
+                .returnResult()
+                .getResponseBody();
+
+        //THEN
+        List<NasaPicture> expected = List.of(NasaPicture.builder()
+                .title("A Digital Lunar Eclipse")
+                .id("123456")
+                .date("2022-05-19")
+                .explanation("Description of Picture")
+                .copyright("Michael Cain")
+                .url("https://apod.nasa.gov/apod/image/2205/TLE_2022-05-16-02-59-35s1024.jpg")
+                .hdurl("https://apod.nasa.gov/apod/image/2205/TLE_2022-05-16-02-59-35s.jpg")
+                .mediaType("image")
+                .serviceVersion("v1")
+                .build()
+        );
+        assertEquals(expected, actual);
     }
 
     private String generateJWTToken() {

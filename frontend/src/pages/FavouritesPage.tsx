@@ -11,7 +11,7 @@ type FavouritesPageProps = {
 }
 
 export default function FavouritesPage ({makeFavourite, removeFavourite, favouritePictures} : FavouritesPageProps){
-    const [favouriteEnabled, setFavouriteEnabled] = useState<boolean>(true)
+    const [favouriteEnabled] = useState<boolean>(true)
     if(!favouritePictures) {
         return <div></div>
     }

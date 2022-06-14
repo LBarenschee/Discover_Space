@@ -2,7 +2,6 @@ import {NasaPicture} from "../model/NasaPicture";
 import usePicture from "../hooks/usePictures";
 import Picture from "../components/Picture";
 import AddOwnPicture from "../components/AddOwnPicture";
-import {postOwnPicture} from "../service/api-service";
 import "../styling/MyPicturesPage.css";
 
 

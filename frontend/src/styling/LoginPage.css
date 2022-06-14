@@ -1,13 +1,12 @@
 .login-page{
-
+    position: absolute;
     font-size: xxx-large;
     font-weight: bold;
     font-family: Tahoma;
     color: white;
-    min-width: fit-content;
-    min-height: fit-content;
     background-image: url("../../media/Ngc6188_Robertson_2000.jpg");
     background-size: 300%;
+    height: 100%;
 }
 #login-page-title{
     padding-top: 20%;

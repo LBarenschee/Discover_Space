@@ -3,9 +3,8 @@ import {toast} from 'react-toastify';
 import {NasaPicture} from "../model/NasaPicture";
 import "../styling/AddOwnPicture.css";
 
-
 type OwnPictureProps={
-    addPicture : (newNasaPictureFormData: FormData) => Promise<NasaPicture>
+    addPicture : (newNasaPictureFormData: FormData) => Promise<any>
 }
 
 export default function AddOwnPicture({addPicture}: OwnPictureProps){
@@ -13,8 +12,6 @@ export default function AddOwnPicture({addPicture}: OwnPictureProps){
     const [date, setDate] = useState(``)
     const [explanation, setExplanation] = useState(``)
     const [copyright, setCopyright] = useState(``)
-    const [url, setUrl] = useState(``)
-    const [hdurl, setHdurl] = useState(``)
     const [image, setImage] = useState<File>()
 
     const onAdd = (event: FormEvent<HTMLFormElement>) => {
@@ -27,13 +24,12 @@ export default function AddOwnPicture({addPicture}: OwnPictureProps){
             toast.error("No file selected.")
             return
         }
-        const newPicture : Omit<NasaPicture, "id">= {
+        const newPicture : any= {
             title : title,
             date : date,
             explanation : explanation,
             copyright : copyright,
-            url : url,
-            hdurl : hdurl,
+
         }
         const formData = new FormData()
         formData.append(
@@ -49,7 +45,6 @@ export default function AddOwnPicture({addPicture}: OwnPictureProps){
 
     }
 
-
     const fileChangedHandler = (event : ChangeEvent<HTMLInputElement>) =>{
         const file = event.target.files?.item(0)
         if(file !== null){
@@ -64,12 +59,9 @@ export default function AddOwnPicture({addPicture}: OwnPictureProps){
                 <input type={"text"} placeholder="Date" value={date} onChange={event => setDate(event.target.value)}/>
                 <input type={"text"} placeholder="Explanation" value={explanation} onChange={event => setExplanation(event.target.value)}/>
                 <input type={"text"} placeholder="Copyright" value={copyright} onChange={event => setCopyright(event.target.value)}/>
-                <input type={"text"} placeholder="Url" value={url} onChange={event => setUrl(event.target.value)}/>
-                <input type={"text"} placeholder="HD-Url" value={hdurl} onChange={event => setHdurl(event.target.value)}/>
                 <input type={"file"} onChange={fileChangedHandler}/>
                 <button>save</button>
             </form>
-
         </div>
     )
 }

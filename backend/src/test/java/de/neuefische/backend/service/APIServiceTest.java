@@ -13,7 +13,7 @@ class APIServiceTest {
 
 
     @Test
-    public void checkIf_apiKey_isValid(){
+    void checkIf_apiKey_isValid(){
         //GIVEN
 
         //WHEN

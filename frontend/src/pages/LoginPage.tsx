@@ -13,13 +13,12 @@ export default function LoginPage(){
         login({username: username, password: password})
     }
     return <div className="login-page">
-        <div>DISCOVER SPACE</div>
-        <div className="text-fields">
-        <form onSubmit={onSubmit}>
+        <div id="login-page-title">DISCOVER SPACE</div>
+        <form id="form" onSubmit={onSubmit}>
             <input type={"text"} value={username} placeholder={"Username"} onChange={(event) => setUsername(event.target.value) }/>
             <input type={"password"} value={password} placeholder={"Password"} onChange={(event) => setPassword(event.target.value)}/>
             <button type={"submit"}>Login</button>
         </form>
-        </div>
+
     </div>
 }

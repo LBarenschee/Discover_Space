@@ -1,9 +1,13 @@
 .landingpage{
- margin-top: 20px;
+ margin-top: 60px;
  font-size: xxx-large;
  font-weight: bold;
  font-family: Tahoma;
  color: white;
+ min-width: fit-content;
+ min-height: fit-content;
+ background-image: url("../../media/Ngc6188_Robertson_2000.jpg");
+ background-size: 300%;
 }
 
 .buttons{
@@ -17,9 +21,10 @@
  grid-auto-rows: 110px;
  justify-content: space-between;
  color: #000;
+ border: none;
+ text-align: center;
+ text-decoration: none;
+ font-family: Tahoma;
+ font-size: 100%;
 }
-body {
- min-width: fit-content;
- background-image: url("../../media/Ngc6188_Robertson_2000.jpg");
- background-size: 300%;
-}
+

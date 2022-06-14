@@ -1,18 +1,22 @@
 .login-page{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 50%;
+
     font-size: xxx-large;
     font-weight: bold;
     font-family: Tahoma;
     color: white;
+    min-width: fit-content;
+    min-height: fit-content;
+    background-image: url("../../media/Ngc6188_Robertson_2000.jpg");
+    background-size: 300%;
+}
+#login-page-title{
+    padding-top: 20%;
 }
 .text-fields{
 }
 .login-page button{
     border: none;
-    padding: 10px 25px;
+    padding: 10px 1px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0);
     color: white;
@@ -20,4 +24,11 @@
     display: inline-block;
     font-family: Tahoma;
     font-weight: bold;
+    font-size: x-large;
+}
+#form{
+    display: flex;
+    flex-direction: column ;
+    margin: 90% 20% 0;
+
 }

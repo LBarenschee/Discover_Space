@@ -31,6 +31,7 @@ class NasaPictureControllerTest {
 
     private String jwtToken;
 
+
     @Autowired
     private TestWebClientConfig testWebClientConfig;
 

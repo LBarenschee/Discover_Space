@@ -14,13 +14,14 @@ export default function Picture({nasaPicture, makeFavourite, removeFavourite, fa
     const [explanationFull, setExplanationFull] = useState<boolean> (false);
 
     return <div className={"picture"}>
+        <p className={"title"}>{nasaPicture.title}</p>
+
         <img className={"img"} src={nasaPicture.url} alt={""}/>
         {!favouriteEnabled?
         <button className="button" onClick={()=> makeFavourite(nasaPicture)}>Add Favourite</button>
             :
             <button className="button" onClick={() => removeFavourite (nasaPicture.id)}>Remove Favourite</button>
         }
-        <p className={"title"}>{nasaPicture.title}</p>
         <p className={"date"}>{nasaPicture.date}</p>
 
         {explanationFull ?

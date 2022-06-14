@@ -1,14 +1,16 @@
+.title{
+    text-align: left;
+    padding-bottom: 3%;
+    padding-left: 2%;
+    padding-top: 5%;
+    font-weight: bold;
+}
 .picture{
     background-color: #000000;
     color: #ffffff;
     margin-top: 0%;
     padding: 0%;
     font-family: Tahoma;
-}
-.title{
-    text-align: left;
-    padding-bottom: 3%;
-    padding-left: 2%;
 }
 .date{
     text-align: left;

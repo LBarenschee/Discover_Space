@@ -1,6 +1,8 @@
 .my-pictures-page{
     display: flex;
     flex-direction: row;
+    background-color: black;
+    min-height: fit-content;
 
 
 }

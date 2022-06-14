@@ -1,0 +1,33 @@
+.login-page{
+    position: absolute;
+    font-size: xxx-large;
+    font-weight: bold;
+    font-family: Tahoma;
+    color: white;
+    background-image: url("../../media/Ngc6188_Robertson_2000.jpg");
+    background-size: 300%;
+    height: 100%;
+}
+#login-page-title{
+    padding-top: 20%;
+}
+.text-fields{
+}
+.login-page button{
+    border: none;
+    padding: 10px 1px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Tahoma;
+    font-weight: bold;
+    font-size: x-large;
+}
+#form{
+    display: flex;
+    flex-direction: column ;
+    margin: 90% 20% 0;
+
+}

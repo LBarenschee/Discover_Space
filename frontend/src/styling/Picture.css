@@ -1,14 +1,16 @@
+.title{
+    text-align: left;
+    padding-bottom: 3%;
+    padding-left: 2%;
+    padding-top: 5%;
+    font-weight: bold;
+}
 .picture{
     background-color: #000000;
     color: #ffffff;
     margin-top: 0%;
     padding: 0%;
     font-family: Tahoma;
-}
-.title{
-    text-align: left;
-    padding-bottom: 3%;
-    padding-left: 2%;
 }
 .date{
     text-align: left;
@@ -19,7 +21,6 @@
     text-align: left;
     padding-left: 2%;
     padding-right: 2%;;
-    padding-bottom: 5%;
 }
 .copyright{
     text-align: left;
@@ -40,7 +41,10 @@ p{
     margin-top: 0px;
     margin-bottom: 0px;
 }
-.body{
+body{
+    display: flex;
+    flex-grow: 1;
+    background-color: black;
     min-width: fit-content;
     min-height: fit-content;
 }
@@ -53,14 +57,20 @@ p{
     text-decoration: none;
     display: inline-block;
     font-family: Tahoma;
+    font-size: 100%;
+}
+.read-more-button{
+    display: flex;
+    flex-direction: column;
 }
 .button1{
     border: none;
-    padding: 15px 32px;
+    padding-left: 2%;
+    margin-bottom: 15px;
     text-align: center;
     background-color: black;
-    color: white;
+    color: #969696;
     text-decoration: none;
-    display: inline-block;
     font-family: Tahoma;
+    font-size: 100%;
 }

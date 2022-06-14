@@ -2,6 +2,7 @@
 import Picture from "../components/Picture";
 import "../styling/Picture.css";
 import {NasaPicture} from "../model/NasaPicture";
+import {useState} from "react";
 
 type FavouritesPageProps = {
     makeFavourite: (nasaPicture: NasaPicture) => void;
@@ -10,6 +11,7 @@ type FavouritesPageProps = {
 }
 
 export default function FavouritesPage ({makeFavourite, removeFavourite, favouritePictures} : FavouritesPageProps){
+    const [favouriteEnabled, setFavouriteEnabled] = useState<boolean>(true)
     if(!favouritePictures) {
         return <div></div>
     }
@@ -18,7 +20,9 @@ export default function FavouritesPage ({makeFavourite, removeFavourite, favouri
             {favouritePictures.map(currentPicture=>{
                 return <Picture nasaPicture={currentPicture}
                                 makeFavourite={makeFavourite}
-                                removeFavourite={removeFavourite}/>
+                                removeFavourite={removeFavourite}
+                                favouriteEnabled={favouriteEnabled}
+                />
             })}
         </div>
     )

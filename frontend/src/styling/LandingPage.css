@@ -1,24 +1,39 @@
 .landingpage{
- margin-top: 20px;
  font-size: xxx-large;
  font-weight: bold;
  font-family: Tahoma;
  color: white;
+ background-size: 300%;
+ height: 100%;
+ background-image: url("../../media/Ngc6188_Robertson_2000.jpg");
+ position: absolute;
+}
+.headline{
+ margin-top: 20%;
 }
 
 .buttons{
  display: grid;
- margin-top: 25%;
- margin-left: 10%;
- margin-right: 10%;
- margin-bottom: 10%;
- grid-template-columns: 1fr 1fr;
- grid-gap: 15px;
- grid-auto-rows: 110px;
- justify-content: space-between;
+ grid-template-columns: repeat(3, 28%);
+ gap: 10px;
+ align-items: center;
+ justify-content: center;
+ margin-top: 60%;
+
 }
-body {
- min-width: fit-content;
- background-image: url("../../media/Ngc6188_Robertson_2000.jpg");
- background-size: 300%;
+.buttons button {
+ border: none;
+ background-color: rgba(255, 255, 255, 0.44);
+ color: white;
+ font-size: large;
+ border-radius: 5px;
+ width: 100%;
+ padding: 4px;
+ min-height: 60px;
 }
+body{
+ margin: 0;
+ padding: 0;
+}
+
+

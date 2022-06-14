@@ -18,14 +18,16 @@ export default function useFavourites(){
         postFavourites(nasaPicture, token)
             .then((nasaPicture)=> {setFavouritePictures([...favouritePictures, nasaPicture])
             })
+            .then(()=> toast.success("picture added to favourites!"))
+            .catch(() => toast.error("could not add to favourites."))
     }
 
     const removeFavourite = (id: string) =>{
         deleteFavourite(id, token)
             .then(()=>setFavouritePictures(favouritePictures.filter(picture => picture.id !==id)))
-            .catch(() => console.error())
+            .then(()=> toast.success("picture removed from favourites!"))
+            .catch(() => toast.error("could not remove picture."))
     }
-
     return{
         makeFavourite, removeFavourite, favouritePictures
     }

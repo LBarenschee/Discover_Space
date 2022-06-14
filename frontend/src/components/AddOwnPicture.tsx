@@ -1,7 +1,7 @@
 import {ChangeEvent, FormEvent, useState} from "react";
 import {toast} from 'react-toastify';
 import {NasaPicture} from "../model/NasaPicture";
-
+import "../styling/AddOwnPicture.css";
 
 
 type OwnPictureProps={
@@ -58,7 +58,7 @@ export default function AddOwnPicture({addPicture}: OwnPictureProps){
     }
 
     return(
-        <div className={"new-pciture"}>
+        <div className={"new-picture"}>
             <form onSubmit={onAdd}>
                 <input type={"text"} placeholder="Title" value={title} onChange={event => setTitle(event.target.value)}/>
                 <input type={"text"} placeholder="Date" value={date} onChange={event => setDate(event.target.value)}/>

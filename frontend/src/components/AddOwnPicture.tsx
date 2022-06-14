@@ -1,6 +1,5 @@
 import {ChangeEvent, FormEvent, useState} from "react";
 import {toast} from 'react-toastify';
-import {NasaPicture} from "../model/NasaPicture";
 import "../styling/AddOwnPicture.css";
 
 type OwnPictureProps={
